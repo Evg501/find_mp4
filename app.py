@@ -4,7 +4,7 @@ from urllib.parse import urljoin
 from bs4 import BeautifulSoup
 from pack.file_lib import *
 
-DOWNLOAD_DIR = './downloads'
+DOWNLOAD_DIR = 'downloads'
 
 def find_mp4_links(url):
     try:
@@ -30,7 +30,10 @@ if __name__ == "__main__":
     #    print("Использование: python find_mp4_links.py <URL>")
     #    sys.exit(1)
     set_this_dir()
-    mkdir_if_no_exist(DOWNLOAD_DIR)
+    curr_dir = get_curr_dir(__file__) + '\\' + DOWNLOAD_DIR
+    #print(curr_dir )
+    #exit()
+    mkdir_if_no_exist(curr_dir)
     #page_url = sys.argv[1]
     while True:
         print("Введите url")
@@ -41,7 +44,12 @@ if __name__ == "__main__":
             print("Найденные ссылки на .mp4 файлы:")
             for link in links:
                 print(link)
-                print("Скачивание...")
-                download_file(urlfile=link, path=DOWNLOAD_DIR, check_exist=True)
+                fname = os.path.basename(link)
+                full_name = os.path.join(curr_dir, fname)
+                if not os.path.exists(full_name):
+                    print("Скачивание...")
+                    download_file(urlfile=link, path=curr_dir, check_exist=True)
+                else:
+                    print('file exists: ' + fname)
         else:
             print("Ссылки на .mp4 файлы не найдены.")
