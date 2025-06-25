@@ -31,7 +31,7 @@ if __name__ == "__main__":
     #if len(sys.argv) != 2:
     #    print("Использование: python find_mp4_links.py <URL>")
     #    sys.exit(1)
-    print('[grey37]hello')
+    print('[grey37]hello', '[red]hello')
     set_this_dir()
     #curr_dir = get_curr_dir(__file__) + '\\' + DOWNLOAD_DIR
     curr_dir = get_exe_dir(arg1=__file__) + '\\' + DOWNLOAD_DIR
