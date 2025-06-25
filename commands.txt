@@ -1,8 +1,9 @@
 
-работает
 
+# Сборка exe файла с версией
 pyinstaller --onefile --console --add-data "pack;pack" --version-file=version_info.txt app.py
 
+# Сборка exe файла без версии
 pyinstaller --onefile --console --add-data "pack;pack" app.py
 
 pyinstaller --onefile --console ^
@@ -14,4 +15,6 @@ pyinstaller --version-file=version_info.txt main.py
 не работало
 pyinstaller --onefile --console --hidden-import=pack --hidden-import=pack.file_lib app.py
 
-
+### 
+# генерировать файл версии
+pyivf-make_version --source-format yaml --metadata-source metadata.yml --outfile version_info.txt
