@@ -5,6 +5,7 @@ from os.path import isfile, join
 import requests
 import math
 import shutil
+import sys
 
 # 'cp1251'  'utf-8'
 def read_file(fname, e=''):
@@ -36,6 +37,18 @@ def set_this_dir():
     
 def get_curr_dir(arg1=__file__):
     return os.path.dirname(arg1)
+
+def get_exe_dir(arg1=os.path.abspath(__file__)):
+    """Возвращает путь к каталогу, где находится .exe или исходный скрипт"""
+    if getattr(sys, 'frozen', False):
+        # Если приложение собрано с помощью PyInstaller
+        print("Запущен как EXE")
+        exe_dir = os.path.dirname(sys.executable)
+    else:
+        # Если запускается как обычный Python-скрипт
+        print("Запущен как PY")
+        exe_dir = os.path.dirname(arg1)
+    return exe_dir
 
 def get_parent_dir(arg1):
     return str(Path(arg1).parent.parent)

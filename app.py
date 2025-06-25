@@ -30,8 +30,9 @@ if __name__ == "__main__":
     #    print("Использование: python find_mp4_links.py <URL>")
     #    sys.exit(1)
     set_this_dir()
-    curr_dir = get_curr_dir(__file__) + '\\' + DOWNLOAD_DIR
-    #print(curr_dir )
+    #curr_dir = get_curr_dir(__file__) + '\\' + DOWNLOAD_DIR
+    curr_dir = get_exe_dir(arg1=__file__) + '\\' + DOWNLOAD_DIR
+    print('папка: ', curr_dir )
     #exit()
     mkdir_if_no_exist(curr_dir)
     #page_url = sys.argv[1]
