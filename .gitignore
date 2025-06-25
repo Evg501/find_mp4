@@ -1,2 +1,5 @@
 downloads/
 __pycache__
+build/
+dist/app.exe
+app.spec
