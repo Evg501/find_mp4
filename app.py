@@ -5,7 +5,7 @@ from bs4 import BeautifulSoup
 from pack.file_lib import *
 from rich import print
 from rich.console import Console
-from pack_ai.findmp4 import *
+from pack_ai.fmp4 import *
 
 DOWNLOAD_DIR = 'downloads'
 
