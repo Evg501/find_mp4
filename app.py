@@ -5,7 +5,8 @@ from bs4 import BeautifulSoup
 from pack.file_lib import *
 from rich import print
 from rich.console import Console
-from pack_ai.fmp4 import *
+#from pack_ai.fmp4 import *
+from pack_ai.fmp4pw import *
 
 DOWNLOAD_DIR = 'downloads'
 
@@ -26,8 +27,9 @@ if __name__ == "__main__":
         print("[green3]Введите url")
         page_url = input()
         
-        links = find_mp4_links(page_url)
-
+        #links = find_mp4_links(page_url)
+        links = asyncio.run(find_mp4_links_with_playwright(page_url))
+        
         if links:
             print("Найденные ссылки на .mp4 файлы:")
             for link in links:
