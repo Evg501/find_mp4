@@ -27,8 +27,8 @@ if __name__ == "__main__":
         print("[green3]Введите url")
         page_url = input()
         
-        #links = find_mp4_links(page_url)
-        links = asyncio.run(find_mp4_links_with_playwright(page_url))
+        #links = find_mp4_links(page_url) # requests
+        links = asyncio.run(find_mp4_links_with_playwright(page_url)) # playwright
         
         if links:
             print("Найденные ссылки на .mp4 файлы:")
