@@ -7,6 +7,8 @@ from rich import print
 from rich.console import Console
 #from pack_ai.fmp4 import *
 from pack_ai.f_pw_mp4 import *
+#import os
+#os.environ["PLAYWRIGHT_BROWSERS_PATH"] = 0
 
 DOWNLOAD_DIR = 'downloads'
 
