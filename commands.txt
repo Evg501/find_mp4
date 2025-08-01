@@ -1,7 +1,14 @@
 
+# Сборка exe файла с версией
+pyinstaller your_script.spec
+
+set PLAYWRIGHT_BROWSERS_PATH=0
+playwright install chromium
+pyinstaller -F main.py
+
 
 # Сборка exe файла с версией
-pyinstaller --onefile --console --add-data "pack;pack" --version-file=version_info.txt app.py
+pyinstaller --onefile --console --add-data "pack;pack" --add-data "pack_ai;pack_ai" --version-file=version_info.txt app.py
 
 # Сборка exe файла без версии
 pyinstaller --onefile --console --add-data "pack;pack" app.py
