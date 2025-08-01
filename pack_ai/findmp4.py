@@ -2,6 +2,7 @@ import sys
 import requests
 from urllib.parse import urljoin
 from bs4 import BeautifulSoup
+from pack.file_lib import *
 
 def find_mp4_links(url):
     try:
@@ -10,7 +11,7 @@ def find_mp4_links(url):
     except requests.RequestException as e:
         print(f"Ошибка при загрузке страницы: {e}")
         return []
-
+    write_file( fname='last.html', text=response.text )
     soup = BeautifulSoup(response.text, 'html.parser')
     mp4_links = []
 

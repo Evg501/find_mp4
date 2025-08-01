@@ -5,3 +5,4 @@ dist/
 app.spec
 venv/
 
+*.html
