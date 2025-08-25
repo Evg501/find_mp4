@@ -6,6 +6,7 @@ from pack.file_lib import *
 from rich import print
 from rich.console import Console
 #from pack_ai.fmp4 import *
+from pack_ai.f_mp4 import find_mp4_links
 from pack_ai.f_pw_mp4 import *
 #import os
 #os.environ["PLAYWRIGHT_BROWSERS_PATH"] = 0
@@ -29,8 +30,8 @@ if __name__ == "__main__":
         print("[green3]Введите url")
         page_url = input()
         
-        #links = find_mp4_links(page_url) # requests
-        links = asyncio.run(find_mp4_links_with_playwright(page_url)) # playwright
+        links = find_mp4_links(page_url) # requests
+        #links = asyncio.run(find_mp4_links_with_playwright(page_url)) # playwright
         
         if links:
             print("Найденные ссылки на .mp4 файлы:")
@@ -40,7 +41,9 @@ if __name__ == "__main__":
                 full_name = os.path.join(curr_dir, fname)
                 if not os.path.exists(full_name):
                     print("Скачивание...")
-                    download_file(urlfile=link, path=curr_dir, check_exist=True)
+                    dld=input('Скачать файл? д/н y/n: ')
+                    if dld=='y' or dld=='д':
+                        download_file(urlfile=link, path=curr_dir, check_exist=True)
                 else:
                     print('[red]file exists: ' + fname )
         else:
