@@ -25,3 +25,11 @@ pyinstaller --onefile --console --hidden-import=pack --hidden-import=pack.file_l
 ### 
 # генерировать файл версии
 pyivf-make_version --source-format yaml --metadata-source metadata.yml --outfile version_info.txt
+
+
+ОКОННОЕ ПРИЛОЖЕНИЕ
+pyinstaller --onefile --noconsole --icon=app.ico mp4_finder.py
+pyinstaller --onefile --hidden-import=requests --noconsole mp4_finder.py
+
+test data:
+https://vestivrn.ru/news/2026/03/25/v-voronezhskoi-oblasti-usilili-kontrol-za-zhivotnymi-nelegalami/
